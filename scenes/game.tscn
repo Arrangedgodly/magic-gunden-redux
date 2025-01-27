@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://doa7xdhyty187"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_c3pdt"]
+[ext_resource type="PackedScene" uid="uid://6xboe4joipkb" path="res://scenes/map.tscn" id="2_rq5ak"]
+[ext_resource type="PackedScene" uid="uid://bhprfp68gi6gy" path="res://scenes/enemy_manager.tscn" id="4_34d7i"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_c3pdt")
+
+[node name="Map" parent="." instance=ExtResource("2_rq5ak")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(200, 190)
+zoom = Vector2(1.75, 1.75)
+
+[node name="EnemyManager" parent="." instance=ExtResource("4_34d7i")]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Pickups" type="Node2D" parent="."]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciymbhjotpafi"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_1q0ev"]
+[ext_resource type="PackedScene" uid="uid://dfpv4ykjgwemo" path="res://scenes/detector.tscn" id="2_un1uv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqc8k"]
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 3
+script = ExtResource("1_1q0ev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jqc8k")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+horizontal_alignment = 1
+
+[node name="Detector" parent="." instance=ExtResource("2_un1uv")]

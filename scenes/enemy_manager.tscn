@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhprfp68gi6gy"]
+
+[ext_resource type="Script" path="res://scripts/EnemyManager.gd" id="1_30xpj"]
+
+[node name="EnemyManager" type="Node2D"]
+script = ExtResource("1_30xpj")
+
+[node name="Spawn" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Move" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
