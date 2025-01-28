@@ -7,11 +7,19 @@ extends Node
 
 const ENEMY = preload("res://scenes/enemy.tscn")
 
+var can_move: bool = false
+
 func _ready() -> void:
 	spawn.timeout.connect(_on_spawn_timeout)
 	move.timeout.connect(_on_move_timeout)
 	
 	spawn_enemy()
+
+func _process(delta: float) -> void:
+	if can_move:
+		if move_enemies():
+			can_move = false
+		
 
 func spawn_enemy() -> void:
 	var spawn_tile = map.choose_spawn_location()
@@ -23,5 +31,18 @@ func _on_spawn_timeout() -> void:
 	spawn_enemy()
 
 func _on_move_timeout() -> void:
-	for enemy in get_tree().get_nodes_in_group("enemies"):
-		enemy.can_move = true
+	can_move = true
+
+func move_enemies() -> bool:
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	var enemies_ready_to_move = 0
+	for enemy in enemies:
+		if enemy.ready_to_move:
+			enemies_ready_to_move += 1
+	
+	if enemies_ready_to_move == enemies.size():
+		for enemy in enemies:
+			enemy.can_move = true
+		return true
+	else:
+		return false

@@ -25,6 +25,7 @@ window/size/viewport_height=800
 tiles=""
 enemies=""
 detectors=""
+border=""
 
 [rendering]
 

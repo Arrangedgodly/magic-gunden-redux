@@ -19,19 +19,3 @@ func _on_body_exited(body: Node2D) -> void:
 func trigger_occupied() -> void:
 	occupied = true
 	collision.debug_color = Color(0.7, 0, 0, 0.42)
-
-func check_detector() -> bool:
-	if detector_count < 2:
-		return true
-	else:
-		return false
-
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("detectors"):
-		print("Detector entered " + self.name)
-		detector_count += 1
-
-func _on_area_exited(area: Area2D) -> void:
-	if area.is_in_group("detectors"):
-		print("Detector exited " + self.name)
-		detector_count -= 1
