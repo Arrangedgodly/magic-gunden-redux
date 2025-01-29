@@ -8,11 +8,11 @@ func _ready() -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
-	if not (body is TileMapLayer):
+	if body is not TileMapLayer:
 		trigger_occupied()
 
 func _on_body_exited(body: Node2D) -> void:
-	if not (body is TileMapLayer):
+	if body is not TileMapLayer:
 		occupied = false
 		collision.debug_color = Color(0, 0.6, 0.7, 0.42)
 
