@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 		move()
 
 func randomize_detector_position() -> void:
+	detector.position = Vector2(0, 0)
+	await get_tree().create_timer(.01).timeout
 	detector.position = DIRECTIONS.pick_random()
 
 func set_ready_to_move() -> void:
