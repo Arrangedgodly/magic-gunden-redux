@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://doa7xdhyty187"]
+[gd_scene load_steps=7 format=3 uid="uid://doa7xdhyty187"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_c3pdt"]
 [ext_resource type="PackedScene" uid="uid://6xboe4joipkb" path="res://scenes/map.tscn" id="2_rq5ak"]
 [ext_resource type="PackedScene" uid="uid://j3mk6h0rx72e" path="res://scenes/gem_manager.tscn" id="3_ciapp"]
 [ext_resource type="PackedScene" uid="uid://bhprfp68gi6gy" path="res://scenes/enemy_manager.tscn" id="4_34d7i"]
+[ext_resource type="PackedScene" uid="uid://dnna1y4p4m8fw" path="res://scenes/score_manager.tscn" id="5_pq5ry"]
+[ext_resource type="PackedScene" uid="uid://jpco08payx7s" path="res://scenes/player.tscn" id="6_8ykts"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_c3pdt")
@@ -19,10 +21,15 @@ zoom = Vector2(1.75, 1.75)
 
 [node name="EnemyManager" parent="." instance=ExtResource("4_34d7i")]
 
+[node name="ScoreManager" parent="." instance=ExtResource("5_pq5ry")]
+
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Gems" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("6_8ykts")]
 unique_name_in_owner = true

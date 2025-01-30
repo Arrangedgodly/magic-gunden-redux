@@ -7,8 +7,6 @@ script = ExtResource("1_30xpj")
 
 [node name="Spawn" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true
 
 [node name="Move" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true

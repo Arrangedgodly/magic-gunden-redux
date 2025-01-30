@@ -11,6 +11,7 @@ script = ExtResource("1_1q0ev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jqc8k")
+debug_color = Color(0.999542, 0, 0.109667, 0.42)
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -24,6 +25,8 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 2
 text = "E"
 horizontal_alignment = 1
 

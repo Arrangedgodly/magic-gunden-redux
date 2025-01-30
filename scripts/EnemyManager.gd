@@ -1,9 +1,10 @@
-extends Node
+extends Node2D
 
 @onready var spawn: Timer = $Spawn
 @onready var move: Timer = $Move
 @onready var map: Node2D = %Map
 @onready var enemies: Node2D = %Enemies
+@onready var player: CharacterBody2D = %Player
 
 const ENEMY = preload("res://scenes/enemy.tscn")
 
@@ -12,6 +13,7 @@ var can_move: bool = false
 func _ready() -> void:
 	spawn.timeout.connect(_on_spawn_timeout)
 	move.timeout.connect(_on_move_timeout)
+	player.game_start.connect(_start_timers)
 	
 	spawn_enemy()
 
@@ -46,3 +48,8 @@ func move_enemies() -> bool:
 		return true
 	else:
 		return false
+
+func _start_timers() -> void:
+	spawn.start()
+	move.start()
+	can_move = true
