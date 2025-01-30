@@ -40,4 +40,5 @@ script = ExtResource("2_132ka")
 shape = SubResource("RectangleShape2D_ba1bv")
 debug_color = Color(0.912703, 9.29886e-05, 0.722286, 0.42)
 
+[connection signal="area_entered" from="PickupZone" to="PickupZone" method="_on_area_entered"]
 [connection signal="body_entered" from="PickupZone" to="PickupZone" method="_on_body_entered"]
