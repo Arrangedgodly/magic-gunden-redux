@@ -51,12 +51,15 @@ layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/Buttons"]
+[node name="TryAgain" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Try Again"
 
-[node name="Button2" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Quit" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Buttons/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Quit" to="." method="_on_quit_pressed"]

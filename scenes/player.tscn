@@ -6,6 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gwt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba1bv"]
+size = Vector2(10, 10)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ebrep")

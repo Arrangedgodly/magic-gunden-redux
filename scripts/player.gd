@@ -1,5 +1,7 @@
 extends CharacterBody2D
 signal game_start
+signal game_end
+signal move_complete(positions: Array)
 
 @onready var map: Node2D = %Map
 @onready var move: Timer = $Move
@@ -53,6 +55,8 @@ func _process(delta: float) -> void:
 		var tween = create_tween()
 		var target_position = self.position + current_direction
 		tween.tween_property(self, "position", target_position, .5)
+		
+		move_complete.emit(trail)
 	
 func _on_move_timeout() -> void:
 	can_move = true
@@ -66,11 +70,10 @@ func set_direction(new_direction: Vector2) -> void:
 		game_start.emit()
 
 func _on_death() -> void:
-	print("Player killed")
+	game_end.emit()
 	
 func _on_gem_retreived() -> void:
 	gem_count += 1
-	print("Gem Retreived")
 
 func update_trail(new_position: Vector2) -> void:
 	trail.push_front(new_position)
