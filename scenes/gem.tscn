@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ppu"]
 
 [node name="Gem" type="CharacterBody2D" groups=["gems"]]
+z_index = 1
 script = ExtResource("1_2k5st")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

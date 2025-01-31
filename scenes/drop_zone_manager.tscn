@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6kmhxilol61y"]
+
+[ext_resource type="Script" path="res://scripts/drop_zone_manager.gd" id="1_tsbbr"]
+
+[node name="DropZoneManager" type="Node2D"]
+script = ExtResource("1_tsbbr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0

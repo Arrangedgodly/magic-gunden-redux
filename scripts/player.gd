@@ -51,9 +51,9 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if can_move:
 		can_move = false
-		update_trail(self.position)
 		var tween = create_tween()
 		var target_position = self.position + current_direction
+		update_trail(target_position)
 		tween.tween_property(self, "position", target_position, .5)
 		
 		move_complete.emit(trail)
@@ -76,6 +76,6 @@ func _on_gem_retreived() -> void:
 	gem_count += 1
 
 func update_trail(new_position: Vector2) -> void:
-	trail.push_front(new_position)
+	trail.push_back(new_position)
 	while trail.size() > gem_count + 1:
-		trail.pop_back()
+		trail.pop_front()

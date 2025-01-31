@@ -9,6 +9,7 @@
 size = Vector2(10, 10)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 2
 script = ExtResource("1_ebrep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,6 +34,7 @@ text = "P"
 horizontal_alignment = 1
 
 [node name="Move" type="Timer" parent="."]
+wait_time = 0.75
 
 [node name="PickupZone" type="Area2D" parent="."]
 script = ExtResource("2_132ka")

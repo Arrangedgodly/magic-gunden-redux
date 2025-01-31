@@ -29,6 +29,7 @@ detectors=""
 border=""
 player=""
 gems=""
+capture=""
 
 [input]
 

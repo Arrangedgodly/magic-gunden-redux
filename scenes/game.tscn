@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://doa7xdhyty187"]
+[gd_scene load_steps=9 format=3 uid="uid://doa7xdhyty187"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_c3pdt"]
 [ext_resource type="PackedScene" uid="uid://6xboe4joipkb" path="res://scenes/map.tscn" id="2_rq5ak"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnna1y4p4m8fw" path="res://scenes/score_manager.tscn" id="5_pq5ry"]
 [ext_resource type="PackedScene" uid="uid://jpco08payx7s" path="res://scenes/player.tscn" id="6_8ykts"]
 [ext_resource type="PackedScene" uid="uid://c6c4ioptn8vvi" path="res://scenes/game_over.tscn" id="7_n0xm5"]
+[ext_resource type="PackedScene" uid="uid://c6kmhxilol61y" path="res://scenes/drop_zone_manager.tscn" id="8_13mp6"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_c3pdt")
@@ -37,3 +38,5 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="GameOver" parent="." instance=ExtResource("7_n0xm5")]
+
+[node name="DropZoneManager" parent="." instance=ExtResource("8_13mp6")]
