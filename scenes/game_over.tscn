@@ -24,25 +24,25 @@ alignment = 1
 
 [node name="GameOver" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 64
 text = "Game Over"
 horizontal_alignment = 1
 
 [node name="FinalScore" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Final Score:"
 horizontal_alignment = 1
 
 [node name="GemsCollected" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Gems Collected:"
 horizontal_alignment = 1
 
 [node name="EnemiesKilled" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Enemies Killed:"
 horizontal_alignment = 1
 

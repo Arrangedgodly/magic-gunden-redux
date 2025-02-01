@@ -1,5 +1,8 @@
 extends Node2D
 
+signal gems_scored(gem_count: int)
+signal gems_converted(gem_positions: Array)
+
 @onready var spawn: Timer = $Spawn
 @onready var map: Node2D = %Map
 @onready var gems: Node2D = %Gems
@@ -8,11 +11,14 @@ extends Node2D
 const GEM = preload("res://scenes/gem.tscn")
 
 var collected_gems = []
+var gems_captured: int = 0
+var gems_to_enemies = []
 
 func _ready() -> void:
 	spawn.timeout.connect(_on_spawn_timeout)
 	player.game_start.connect(_start_timer)
 	player.move_complete.connect(update_gem_positions)
+	player.release_gems.connect(release_gems)
 	
 	_on_spawn_timeout()
 	
@@ -38,3 +44,21 @@ func update_gem_positions(positions: Array) -> void:
 			if gem.position != target_pos:
 				var tween = create_tween()
 				tween.tween_property(gem, "position", target_pos, 0.5)
+
+func release_gems() -> void:
+	for gem in collected_gems:
+		if gem.can_capture:
+			gems_captured += 1
+		else:
+			gems_to_enemies.append(gem.position)
+		gem.queue_free()
+	
+	gems_scored.emit(gems_captured)
+	gems_converted.emit(gems_to_enemies)
+	
+	reset_collected_gems()
+
+func reset_collected_gems() -> void:
+	gems_captured = 0
+	gems_to_enemies = []
+	collected_gems = []

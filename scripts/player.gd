@@ -2,12 +2,14 @@ extends CharacterBody2D
 signal game_start
 signal game_end
 signal move_complete(positions: Array)
+signal release_gems
 
 @onready var map: Node2D = %Map
 @onready var move: Timer = $Move
 @onready var pickup_zone: Area2D = $PickupZone
 
 var can_move: bool = false
+var trigger_drop: bool = false
 var current_direction
 var game_started: bool = false
 var gem_count: int = 0
@@ -47,10 +49,18 @@ func _input(event: InputEvent) -> void:
 		if current_direction == DIRECTIONS.left:
 			return
 		set_direction(DIRECTIONS.right)
+	
+	if event.is_action_pressed("drop"):
+		trigger_drop = true
 
 func _process(delta: float) -> void:
 	if can_move:
 		can_move = false
+		if trigger_drop:
+			trigger_drop = false
+			gem_count = 0
+			trail = []
+			release_gems.emit()
 		var tween = create_tween()
 		var target_position = self.position + current_direction
 		update_trail(target_position)
