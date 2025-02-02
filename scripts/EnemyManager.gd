@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	spawn_enemy(get_random_spawn_location())
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if can_move:
 		if move_enemies():
 			can_move = false
@@ -40,14 +40,14 @@ func _on_move_timeout() -> void:
 	can_move = true
 
 func move_enemies() -> bool:
-	var enemies = get_tree().get_nodes_in_group("enemies")
+	var enemy_nodes = get_tree().get_nodes_in_group("enemies")
 	var enemies_ready_to_move = 0
-	for enemy in enemies:
+	for enemy in enemy_nodes:
 		if enemy.ready_to_move:
 			enemies_ready_to_move += 1
 	
-	if enemies_ready_to_move == enemies.size():
-		for enemy in enemies:
+	if enemies_ready_to_move == enemy_nodes.size():
+		for enemy in enemy_nodes:
 			enemy.can_move = true
 		return true
 	else:

@@ -7,7 +7,7 @@ var occupent_count: int = 0
 func _ready() -> void:
 	pass
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if occupent_count > 0:
 		occupied = true
 		collision.debug_color = Color(0.7, 0, 0, 0.42)

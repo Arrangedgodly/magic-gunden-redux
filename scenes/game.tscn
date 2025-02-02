@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://doa7xdhyty187"]
+[gd_scene load_steps=11 format=3 uid="uid://doa7xdhyty187"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_c3pdt"]
 [ext_resource type="PackedScene" uid="uid://6xboe4joipkb" path="res://scenes/map.tscn" id="2_rq5ak"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c6c4ioptn8vvi" path="res://scenes/game_over.tscn" id="7_n0xm5"]
 [ext_resource type="PackedScene" uid="uid://c6kmhxilol61y" path="res://scenes/drop_zone_manager.tscn" id="8_13mp6"]
 [ext_resource type="PackedScene" uid="uid://c848yxq5jtvod" path="res://scenes/ammo_manager.tscn" id="9_o7jef"]
+[ext_resource type="PackedScene" uid="uid://s2jwp1ermr3s" path="res://scenes/projectile_manager.tscn" id="10_75cqt"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_c3pdt")
@@ -45,4 +46,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="AmmoManager" parent="." instance=ExtResource("9_o7jef")]
+unique_name_in_owner = true
+
+[node name="ProjectileManager" parent="." instance=ExtResource("10_75cqt")]
 unique_name_in_owner = true

@@ -7,6 +7,7 @@ signal release_gems
 @onready var map: Node2D = %Map
 @onready var move: Timer = $Move
 @onready var pickup_zone: Area2D = $PickupZone
+@onready var crosshairs: Sprite2D = $Crosshairs
 
 var can_move: bool = false
 var trigger_drop: bool = false
@@ -21,6 +22,7 @@ const DIRECTIONS = {
 	"up": Vector2(0, -32),
 	"down": Vector2(0, 32)
 }
+const DIRECTIONS_ARRAY = [DIRECTIONS.left, DIRECTIONS.right, DIRECTIONS.up, DIRECTIONS.down]
 
 func _ready() -> void:
 	var spawn_tile = map.choose_spawn_location()
@@ -28,6 +30,9 @@ func _ready() -> void:
 	move.timeout.connect(_on_move_timeout)
 	pickup_zone.death.connect(_on_death)
 	pickup_zone.gem_retreived.connect(_on_gem_retreived)
+	
+	current_direction = DIRECTIONS_ARRAY.pick_random()
+	crosshairs.set_starting_position(current_direction)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
@@ -53,7 +58,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("drop"):
 		trigger_drop = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if can_move:
 		can_move = false
 		if trigger_drop:

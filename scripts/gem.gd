@@ -12,7 +12,7 @@ func trigger_pick_up() -> void:
 	picked_up = true
 	collected.emit(self)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if capture_point_count > 0:
 		can_capture = true
 	else:
@@ -21,6 +21,6 @@ func _process(delta: float) -> void:
 	if can_capture:
 		label.add_theme_color_override("font_color", Color.GREEN)
 	elif picked_up:
-		label.add_theme_color_override("font_color", Color.YELLOW)
+		label.add_theme_color_override("font_color", Color.RED)
 	else:
-		label.add_theme_color_override("font_color", Color.PURPLE)
+		label.add_theme_color_override("font_color", Color.YELLOW)

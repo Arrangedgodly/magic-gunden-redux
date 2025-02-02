@@ -12,7 +12,7 @@ func _ready() -> void:
 	detector.can_move.connect(set_ready_to_move)
 	detector.change_position.connect(randomize_detector_position)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if can_move and ready_to_move:
 		move()
 

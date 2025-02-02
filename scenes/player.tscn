@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://jpco08payx7s"]
+[gd_scene load_steps=6 format=3 uid="uid://jpco08payx7s"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ebrep"]
 [ext_resource type="Script" path="res://scripts/pickup_zone.gd" id="2_132ka"]
+[ext_resource type="PackedScene" uid="uid://cf4btcjhowsj3" path="res://scenes/crosshairs.tscn" id="3_nfwp6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gwt5"]
 
@@ -42,6 +43,8 @@ script = ExtResource("2_132ka")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
 shape = SubResource("RectangleShape2D_ba1bv")
 debug_color = Color(0.912703, 9.29886e-05, 0.722286, 0.42)
+
+[node name="Crosshairs" parent="." instance=ExtResource("3_nfwp6")]
 
 [connection signal="area_entered" from="PickupZone" to="PickupZone" method="_on_area_entered"]
 [connection signal="body_entered" from="PickupZone" to="PickupZone" method="_on_body_entered"]

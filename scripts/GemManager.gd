@@ -20,9 +20,12 @@ func _ready() -> void:
 	player.move_complete.connect(update_gem_positions)
 	player.release_gems.connect(release_gems)
 	
-	_on_spawn_timeout()
+	_spawn_gem()
 	
 func _on_spawn_timeout() -> void:
+	_spawn_gem()
+
+func _spawn_gem() -> void:
 	var spawn_tile = map.choose_spawn_location()
 	var gem_scene = GEM.instantiate()
 	gems.add_child(gem_scene)
@@ -35,6 +38,7 @@ func _start_timer() -> void:
 func collect_gem(gem: Node2D) -> void:
 	if not gem in collected_gems:
 		collected_gems.append(gem)
+		_spawn_gem()
 
 func update_gem_positions(positions: Array) -> void:
 	for i in range(collected_gems.size()):

@@ -9,7 +9,6 @@ const TILE = preload("res://scenes/tile.tscn")
 func _ready() -> void:
 	var i = 0
 	var j = 0
-	var grid_count = 1
 	
 	while i < 12:
 		while j < 12:
@@ -17,11 +16,11 @@ func _ready() -> void:
 			add_child(area)
 			area.position = Vector2((j * 32) + 16, (i * 32) + 16)
 			j += 1
+			tiles.append(area)
 		j = 0
 		i += 1
 
 func get_random_tile() -> Node2D:
-	var tiles = get_tree().get_nodes_in_group("tiles")
 	var random_tile = tiles.pick_random()
 	return random_tile
 

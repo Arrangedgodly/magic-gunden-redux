@@ -17,7 +17,7 @@ func _on_body_exited(body: Node2D) -> void:
 		if gem_count == 0:
 			can_capture = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if can_capture:
 		label.add_theme_color_override("font_color", Color.GREEN_YELLOW)
 	else:
