@@ -94,3 +94,6 @@ func update_trail(new_position: Vector2) -> void:
 	trail.push_back(new_position)
 	while trail.size() > gem_count + 1:
 		trail.pop_front()
+
+func get_crosshairs_position() -> Vector2:
+	return crosshairs.position

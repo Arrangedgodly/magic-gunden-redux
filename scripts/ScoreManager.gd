@@ -5,6 +5,7 @@ signal end_score(final_score: int, final_enemies_killed: int, final_gems_collect
 @onready var gem_manager: Node2D = %GemManager
 @onready var score_label: Label = $CanvasLayer/Control/ScoreLabel
 @onready var score_timer: Timer = $ScoreTimer
+@onready var projectile_manager: Node2D = %ProjectileManager
 
 var score: int = 0
 var enemies_killed: int = 0
@@ -13,6 +14,7 @@ var gems_collected: int = 0
 func _ready() -> void:
 	player.game_end.connect(end_game)
 	gem_manager.gems_scored.connect(_on_gems_scored)
+	projectile_manager.enemy_killed.connect(_on_enemy_killed)
 	_update_score_label(0, .01)
 
 func _on_enemy_killed() -> void:

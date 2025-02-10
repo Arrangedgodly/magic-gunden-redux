@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoytv"]
 
 [node name="Projectile" type="Area2D"]
+z_index = 10
 script = ExtResource("1_04uhv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -28,3 +29,5 @@ theme_override_colors/font_color = Color(0.873019, 0.409116, 3.85046e-07, 1)
 theme_override_constants/outline_size = 2
 text = "B"
 horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
